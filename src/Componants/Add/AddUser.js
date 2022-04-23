@@ -6,7 +6,6 @@ const AddUser = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const user = { name, email };
-        console.log(user);
         fetch('http://localhost:5000/user', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
@@ -15,7 +14,8 @@ const AddUser = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
+                alert('user added successfully');
+                event.target.reset();
             })
     }
     return (
