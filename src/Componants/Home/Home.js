@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [users, setUsers] = useState([]);
@@ -31,7 +32,7 @@ const Home = () => {
             <h3>this is home</h3>
             <h4>valid user::{users.length}</h4>
             {
-                users.map(user => <p key={user._id}>Name: {user.name}, email: {user.email} <button onClick={() => handelToRemoveUser(user._id)}>X</button></p>)
+                users.map(user => <p key={user._id}>Name: {user.name}, email: {user.email} <Link to={`/update/${user._id}`}><button>Update</button></Link> <button onClick={() => handelToRemoveUser(user._id)}>X</button></p>)
             }
 
         </div>
